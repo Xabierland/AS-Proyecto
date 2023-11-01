@@ -3,6 +3,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx, longtable, float, titlesec, hyperref}
 
+\hypersetup{
+    hidelinks = true
+}
+
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\Huge}
 
@@ -62,10 +66,16 @@
                     \item Usado para el servidor web.
                     \item Se le ha instalado PHP y varias extensiones para comunicarse con la base de datos.
                 \end{itemize}
+                \item PHP
+                \begin{itemize}
+                    \item Se utiliza tanto para obtener datos como para enviarlos al servidor de base de datos.
+                    \item Tambien se encarga de la seguridad de la pagina saneando los campos y hasheando las entradas.
+                \end{itemize}
             \end{itemize}
-            El codigo de esta aplicacion se puede encontrar en \url{}
+            El codigo de esta aplicacion se puede encontrar en \url{https://github.com/Xabierland/AS-Proyecto/tree/master/src}
         \clearpage
-        \section{Imprelemtacion de imágenes Docker}
+        \section{Implementación de imágenes Docker}
+            
         \clearpage
         \section{Creacion de entorno Docker Compose}
         \clearpage

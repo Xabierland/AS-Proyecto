@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,14 +11,23 @@
 </head>
 <body>
     <header>
-        <h1>Coches.xyz</h1>
+        <h1 class="page-title">Coches.xyz</h1>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
             <a class="navbar-brand" href="?page=home">Home</a>
             <a class="navbar-brand" href="?page=catalogo">Catalogo</a>
-            <a class="navbar-brand" href="?page=login">Login</a>
-            <a class="navbar-brand" href="?page=register">Register</a>
-            <a class="navbar-brand" href="?page=logout">Logout</a>
+            <?php
+            if (!isset($_SESSION['id'])) 
+            {
+                echo '<a class="navbar-brand" href="?page=login">Login</a>';
+                echo '<a class="navbar-brand" href="?page=register">Register</a>';
+            }
+            else
+            {
+                echo '<a class="navbar-brand" href="?page=publicar">Publicar</a>';
+                echo '<a class="navbar-brand" href="?page=logout">Logout</a>';
+            }
+            ?>
             </div>
         </nav>
     </header>
@@ -39,6 +51,9 @@
                         break;
                     case 'catalogo':
                         include 'php/catalogo.php';
+                        break;
+                    case 'publicar':
+                        include 'php/publicar.php';
                         break;
                     default:
                         include 'php/home.php';

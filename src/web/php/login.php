@@ -7,8 +7,8 @@
                     <div class="card-body">
                         <form method="post">
                             <div class="mb-3">
-                                <label for="nombre_usuario" class="form-label">Nombre de Usuario:</label>
-                                <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" required>
+                                <label for="mail" class="form-label">Correo Electrónico:</label>
+                                <input type="text" class="form-control" id="mail" name="mail" required>
                             </div>
                             <div class="mb-3">
                                 <label for="contrasena" class="form-label">Contraseña:</label>
@@ -26,19 +26,19 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Obtener datos del formulario
-    $nombre_usuario = $_POST["nombre_usuario"];
+    $mail = $_POST["mail"];
     $contrasena = $_POST["contrasena"];
 
     // Consulta SQL para verificar las credenciales de inicio de sesión
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE user = :nombre_usuario");
-    $stmt->bindParam(':nombre_usuario', $nombre_usuario);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE mail = :mail");
+    $stmt->bindParam(':mail', $mail);
     $stmt->execute();
     $user = $stmt->fetch();
 
     if ($user && password_verify($contrasena, $user['passwd'])) {
         // Iniciar la sesión para el usuario
-        $_SESSION['user'] = $user['user'];
-        header("Location: home.php"); // Redirigir a la página de inicio después de iniciar sesión
+        $_SESSION['id'] = $user['id'];
+        echo '<script>window.location.href = "../index.php?page=home";</script>';
     } else {
         // Mostrar el motivo del error en caso de credenciales incorrectas
         echo "Credenciales incorrectas. Inténtelo de nuevo.";

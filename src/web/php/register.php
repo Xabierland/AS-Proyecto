@@ -7,6 +7,10 @@
                     <div class="card-body">
                         <form method="post">
                             <div class="mb-3">
+                                <label for="mail" class="form-label">Correo Electrónico:</label>
+                                <input type="text" class="form-control" id="mail" name="mail" required>
+                            </div>
+                            <div class="mb-3">
                                 <label for="nombre_usuario" class="form-label">Nombre de Usuario:</label>
                                 <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" required>
                             </div>
@@ -26,6 +30,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Obtener datos del formulario
+    $mail = $_POST["mail"];
     $nombre_usuario = $_POST["nombre_usuario"];
     $contrasena = $_POST["contrasena"];
 
@@ -33,9 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hash_contrasena = password_hash($contrasena, PASSWORD_BCRYPT);
 
     // Consulta SQL preparada para insertar los datos en la base de datos
-    $stmt = $pdo->prepare('INSERT INTO users ("user", passwd) VALUES (:user, :passwd)');
+    $stmt = $pdo->prepare('INSERT INTO users (mail, "user", passwd) VALUES (:mail, :user, :passwd)');
 
     // Asociar los parámetros
+    $stmt->bindParam(':mail', $mail);
     $stmt->bindParam(':user', $nombre_usuario);
     $stmt->bindParam(':passwd', $hash_contrasena);    
 
