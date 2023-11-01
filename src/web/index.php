@@ -37,23 +37,25 @@
             
             if (isset($_GET['page'])) {
                 switch ($_GET['page']) {
-                    case 'login':
-                        include 'php/login.php';
-                        break;
-                    case 'logout':
-                        include 'php/logout.php';
-                        break;
-                    case 'register':
-                        include 'php/register.php';
-                        break;
                     case 'home':
                         include 'php/home.php';
                         break;
                     case 'catalogo':
                         include 'php/catalogo.php';
                         break;
+                    case 'login':
+                        include 'php/login.php';
+                        break;
+                    case 'register':
+                        include 'php/register.php';
+                        break;
+                    case 'logout':
+                        include 'php/logout.php';
+                        break;
                     case 'publicar':
-                        include 'php/publicar.php';
+                        if (isset($_SESSION['id'])) {
+                            include 'php/publicar.php';
+                        }
                         break;
                     default:
                         include 'php/home.php';
