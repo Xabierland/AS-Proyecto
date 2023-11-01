@@ -35,7 +35,7 @@ CREATE TABLE "public"."users" (
 ) WITH (oids = false);
 
 INSERT INTO "users" ("id", "mail", "user", "passwd") VALUES
-(1,	'xabierland@gmail.com',	'Xabier',	'$2y$10$c9LAir9HE4fprmnuQ6JD3OQ6KQnFWDhHMYhikscg32PNJep9v2uB6');
+(1,	'xgabina001@ehu.eus',	'Xabier',	'$2y$10$c9LAir9HE4fprmnuQ6JD3OQ6KQnFWDhHMYhikscg32PNJep9v2uB6');
 
 ALTER TABLE ONLY "public"."anuncios" ADD CONSTRAINT "anuncios_vendedor_fkey" FOREIGN KEY (vendedor) REFERENCES users(id) ON DELETE SET NULL NOT DEFERRABLE;
 
