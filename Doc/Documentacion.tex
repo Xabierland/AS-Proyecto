@@ -1,0 +1,93 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx, longtable, float, titlesec, hyperref}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
+
+\begin{document}
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.6\textwidth]{./img/logo.jpg}\\
+        \vspace{1cm}
+        \LARGE Administración de Sistemas\\
+        \vspace{0.5cm}
+        \Large Ingeniería Informática de Gestión y Sistemas de Información\\
+        \vspace{3cm}
+        \Huge Coches.xyz\\
+        \vspace{2.5cm}
+        \Large Autor:\\
+        \vspace{0.2cm}
+        \large Xabier Gabiña Barañano\\
+        \vfill
+        \today
+    \end{titlepage}
+
+    \tableofcontents
+    \chapter{Introducción}
+        La presente tarea pretende explorar la implementación de una aplicación web con una base de datos incorporada, y su despliegue utilizando Docker y Kubernetes. Estos dos entornos tecnológicos ofrecen soluciones esenciales para desafíos contemporáneos en el desarrollo de aplicaciones web, al proporcionar un conjunto de herramientas y prácticas que simplifican la orquestación, escalabilidad y seguridad de dichas aplicaciones.\\
+
+        Docker, una plataforma de contenedores, permite a los desarrolladores encapsular aplicaciones y sus dependencias en entornos aislados. Esta metodología de encapsulamiento elimina problemas de compatibilidad, garantiza la consistencia y facilita la migración de aplicaciones entre distintos entornos. Además, Docker permite una gestión eficiente de recursos, lo que contribuye al despliegue eficaz de aplicaciones web.\\
+        
+        Kubernetes, por su parte, se alza como la solución definitiva para la orquestación de contenedores en clústeres. Esta plataforma, desarrollada por Google, simplifica la administración y escalabilidad de aplicaciones web a gran escala. Kubernetes automatiza la distribución de contenedores, garantizando su disponibilidad, escalabilidad y equilibrio de carga, lo que resulta esencial para aplicaciones que deben manejar un alto volumen de tráfico o que requieren una alta disponibilidad.\\
+        
+        La combinación de Docker y Kubernetes se ha vuelto esencial para implementar aplicaciones web modernas, ya que proporciona una base sólida para desarrollar, desplegar y gestionar sistemas en un entorno altamente dinámico y demandante. Este enfoque promete optimizar los recursos, reducir los tiempos de despliegue y garantizar la confiabilidad y la seguridad de las aplicaciones en un mundo cada vez más orientado a la nube.\\
+        
+        El presente informe se sumergirá en la creación de una aplicación web con una base de datos y el posterior despliegue mediante Docker y Kubernetes.
+    \chapter{Descripción de la aplicación}
+    \chapter{Tareas realizadas}
+        \section{Desarrollar una aplicación web}
+            La primera tarea a realizar en este proyecto es la realizacion de una aplicacion web.
+            En mi caso, como ya he comentado en la descripción de la aplicación, he decidido realizar una aplicación web para la compra y venta de coches de segunda mano.
+            Dicha aplicacion web trabajara con las siguientes tecnológiás:
+            \begin{itemize}
+                \item HTML
+                \begin{itemize}
+                    \item Usado para generar la estructura de la pagina Web.
+                \end{itemize}
+                \item CSS
+                \begin{itemize}
+                    \item Usado para dar estilo a la pagina Web.
+                    \item Se ha utilizado la plantilla de Bootstrap.
+                \end{itemize}
+                \item PostgreSQL
+                \begin{itemize}
+                    \item Usado para la base de datos.
+                    \item Almacena los datos de los usuarios y los coches.
+                    \item Se ha instalado un gestor de base de datos Adminer.
+                \end{itemize}
+                \item Apache
+                \begin{itemize}
+                    \item Usado para el servidor web.
+                    \item Se le ha instalado PHP y varias extensiones para comunicarse con la base de datos.
+                \end{itemize}
+            \end{itemize}
+            El codigo de esta aplicacion se puede encontrar en \url{}
+        \clearpage
+        \section{Imprelemtacion de imágenes Docker}
+        \clearpage
+        \section{Creacion de entorno Docker Compose}
+        \clearpage
+        \section{Creacion de despliegue Kubernetes}
+        \clearpage
+        \section{Inclusion de images extras}
+        \clearpage
+        \section{Nuevas funcionalidades}
+    \chapter{Declaración sobre asistentes virtuales}
+        Para la realización de este proyecto se han utilizado principalemente dos asistentes virtuales, ChatGPT de OpenAI y GitHub Copilot de GitHub.\\
+
+        El uso de ChatGPT ha sido principalmente para tareas de picado de codigo repititivas y para obtener ideas para implementar en la aplicación.\\
+
+        El uso de GitHub Copilot ha sido en cambio el autocompletado que ofrece desde Visual Studio Code para agilizar el desarrollo y para facilitar en gran parte la escritura en ficheros .yaml.\\
+    \chapter{Bibliografia}
+    \begin{itemize}
+        \item GPT-3.5. (2023). Respuesta a una pregunta sobre PHP. OpenAI. \url{https://www.openai.com/}
+        \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
+        \item Docker. (2021). Documentación. Docker. \url{https://docs.docker.com/}
+        \item Kubernetes. (2021). Documentación. Kubernetes. \url{https://kubernetes.io/docs/home/}
+        \item PHP. (2021). Documentación. PHP. \url{https://www.php.net/docs.php}
+        \item PostgreSQL. (2021). Documentación. PostgreSQL. \url{https://www.postgresql.org/docs/}
+        \item Apache. (2021). Documentación. Apache. \url{https://httpd.apache.org/docs/}
+    \end{itemize}
+\end{document}

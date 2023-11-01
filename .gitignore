@@ -1,1 +1,8 @@
-/docker/db/data
+/src/db/data
+
+# Ignorar archivos temporales de latex
+/Doc/*
+!/Doc/Documentacion.pdf
+!/Doc/Documentacion.tex
+!/Doc/img/
+!/Doc/referencias.bib

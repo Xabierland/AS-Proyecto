@@ -3,14 +3,14 @@
     web:
       container_name: web
       build:
-        context: ./web
-        dockerfile: Dockerfile
+        context: .
+        dockerfile: Dockerfile-web
       environment:
         - ALLOW_OVERRIDE=true
       ports:
         - "80:80"
       volumes:
-        - ./web/src:/var/www/html
+        - ../src/web:/var/www/html
       links:
         - adminer
       depends_on:
@@ -26,7 +26,7 @@
         POSTGRES_PASSWORD: root
         POSTGRES_DB: db
       volumes:
-        - ./db/data:/var/lib/postgresql/data
+        - ../src/db/data:/var/lib/postgresql/data
 
     adminer:
       container_name: adminer
