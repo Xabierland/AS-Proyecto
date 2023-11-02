@@ -24,10 +24,3 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: sgbd-volume
-        env:
-        - name: POSTGRES_PASSWORD
-          value: "1234"
-        - name: POSTGRES_USER
-          value: "xabier"
-        - name: POSTGRES_DB
-          value: "db"

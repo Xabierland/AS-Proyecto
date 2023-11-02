@@ -21,12 +21,12 @@ En mi caso he decidido crear una aplicación web que permita a diferentes usuari
 
 ## Tareas
 
-- [ ] Desarrollar una aplicacion web.
-  - [ ] Usable desde un navegador.
-  - [ ] Los datos de la BBDD deben almacenarse fuera de un contenedor.
-- [ ] Crear imágenes Docker propias.
-  - [] Se deben subir a Docker Hub.
-- [ ] Crear un entorno Docker Compose.
+- [X] Desarrollar una aplicacion web.
+  - [X] Usable desde un navegador.
+  - [X] Los datos de la BBDD deben almacenarse fuera de un contenedor.
+- [X] Crear imágenes Docker propias.
+  - [x] Se deben subir a Docker Hub.
+- [X] Crear un entorno Docker Compose.
 - [ ] Despliegue Kubernetes equivalente
 - [ ] Incluir más funcionalidades en la aplicación mediante imágenes adicionales
 - [ ] Utilizar funcionalidades Docker/Kubernetes no vistas en clase
