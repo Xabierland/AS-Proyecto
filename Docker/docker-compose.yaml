@@ -10,26 +10,24 @@
       ports:
         - "80:80"
       volumes:
-        - ../src/web:/var/www/html
+        - ./src/web:/var/www/html
       links:
-        - adminer
+        - sabd
       depends_on:
-        - adminer
+        - sabd
     
-    bbdd:
-      container_name: postgres
-      image: postgres:latest
+    sgbd:
+      container_name: sgbd
+      build:
+        context: .
+        dockerfile: Dockerfile-sgbd
       ports:
         - "5432:5432"
-      environment:
-        POSTGRES_USER: root
-        POSTGRES_PASSWORD: root
-        POSTGRES_DB: db
       volumes:
-        - ../src/db/data:/var/lib/postgresql/data
+        - ./src/db/data:/var/lib/postgresql/data
 
-    adminer:
-      container_name: adminer
+    sabd:
+      container_name: sabd
       image: adminer:latest
       ports:
         - "8080:8080"

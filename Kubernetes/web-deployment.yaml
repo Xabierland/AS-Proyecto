@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-d
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-d
+  template:
+    metadata:
+      labels:
+        app: web-d
+    spec:
+      containers:
+      - name: web-p
+        image: xabierland/web:latest
+        ports:
+        - containerPort: 80

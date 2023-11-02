@@ -1,5 +1,5 @@
 <?php
-$host = "bbdd";      // Host de la base de datos
+$host = "sgbd";      // Host de la base de datos
 $port = 5432;        // Puerto de la base de datos
 $dbname = "db";      // Nombre de la base de datos
 $user = "root";      // Usuario de la base de datos

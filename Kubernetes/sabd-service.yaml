@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sabd
+spec:
+  type: ClusterIP
+  selector:
+    app: sabd-d
+  ports:
+  - port: 80
+    targetPort: 8080

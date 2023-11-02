@@ -35,6 +35,23 @@ En mi caso he decidido crear una aplicación web que permita a diferentes usuari
 
 ### Docker
 
+#### Subir la imagenes a Docker Hub
+
+```bash
+# Web
+docker tag docker-web xabierland/web
+docker push xabierland/web
+
+# Postgres
+docker tag docker-sgbd xabierland/sgbd
+docker push xabierland/sgbd
+
+# Adminer
+docker tag adminer xabierland/sabd
+docker push xabierland/sabd
+
+```
+
 ### Kubernetes
 
 ## FAQ

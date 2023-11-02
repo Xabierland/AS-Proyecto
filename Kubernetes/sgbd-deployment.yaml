@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sgbd-d
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sgbd-d
+  template:
+    metadata:
+      labels:
+        app: sgbd-d
+    spec:
+      volumes:
+      - name: sgbd-volume
+        persistentVolumeClaim:
+          claimName: sgbd-rvolume
+      containers:
+      - name: sgbd-p
+        image: xabierland/sgbd:latest
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: sgbd-volume
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "1234"
+        - name: POSTGRES_USER
+          value: "xabier"
+        - name: POSTGRES_DB
+          value: "db"

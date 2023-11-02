@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sabd-d
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sabd-d
+  template:
+    metadata:
+      labels:
+        app: sabd-d
+    spec:
+      containers:
+      - name: sabd-p
+        image: xabierland/sabd:latest
+        ports:
+        - containerPort: 8080
