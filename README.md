@@ -35,6 +35,12 @@ En mi caso he decidido crear una aplicación web que permita publicar y ver anun
 
 ### Docker
 
+#### Iniciamos el entorno
+
+```bash
+docker-compose up -d --build
+```
+
 #### Subir la imagenes a Docker Hub
 
 ```bash
