@@ -17,7 +17,7 @@ Proyecto de la asignatura de Administración de Sistemas 2023-2024
 
 La tarea propuesta es la de crear una aplicación web funcional con temática libre.
 
-En mi caso he decidido crear una aplicación web que permita a diferentes usuarios comunicarse entre ellos mediante mensajes.
+En mi caso he decidido crear una aplicación web que permita publicar y ver anuncios de autos de segunda mano.
 
 ## Tareas
 
@@ -41,11 +41,9 @@ En mi caso he decidido crear una aplicación web que permita a diferentes usuari
 # Web
 docker tag docker-web xabierland/web
 docker push xabierland/web
-
 # Postgres
 docker tag docker-sgbd xabierland/sgbd
 docker push xabierland/sgbd
-
 # Adminer
 docker tag adminer xabierland/sabd
 docker push xabierland/sabd
@@ -54,4 +52,32 @@ docker push xabierland/sabd
 
 ### Kubernetes
 
-## FAQ
+#### Iniciar el cluster
+
+```bash
+minikube start
+```
+
+#### Crear los objetos
+
+```bash
+#Network
+kubectl apply -f ingress.yaml
+#SABD
+kubectl apply -f sabd-deployment.yaml
+kubectl apply -f sabd-service.yaml
+#Web
+kubectl apply -f web-deployment.yaml
+kubectl apply -f web-service.yaml
+#SGBD
+kubectl apply -f sgbd-deployment.yaml
+kubectl apply -f sgbd-service.yaml
+kubectl apply -f sgbd-volume.yaml
+kubectl apply -f sgbd-rvolume.yaml
+```
+
+#### Creamos el tunnel
+
+```bash
+minikube tunnel
+```
