@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: robot-d
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: robot-d
+  template:
+    metadata:
+      labels:
+        app: robot-d
+    spec:
+      containers:
+      - name: robot-p
+        image: xabierland/robot:latest

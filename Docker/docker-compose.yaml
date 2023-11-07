@@ -31,3 +31,18 @@
       image: adminer:latest
       ports:
         - "8080:8080"
+      depends_on:
+        - sgbd
+      links: 
+        - sgbd
+
+    robot:
+      container_name: robot
+      restart: on-failure
+      build:
+        context: .
+        dockerfile: Dockerfile-robot
+      depends_on:
+        - sgbd
+      links:
+        - sgbd

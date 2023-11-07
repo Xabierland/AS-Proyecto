@@ -53,6 +53,9 @@ docker push xabierland/sgbd
 # Adminer
 docker tag adminer xabierland/sabd
 docker push xabierland/sabd
+# Robot
+docker tag docker-robot xabierland/robot
+docker push xabierland/robot
 
 ```
 
@@ -62,6 +65,25 @@ docker push xabierland/sabd
 
 ```bash
 minikube start
+```
+
+#### Colocarnos en el contexto
+
+```bash
+docker context use default
+```
+
+#### Instalar Addons
+
+```bash
+minikube addons enable ingress
+minikube addons enable metrics-server
+```
+
+#### Ejecutar el dashboard
+
+```bash
+minikube dashboard
 ```
 
 #### Crear los objetos
@@ -75,11 +97,39 @@ kubectl apply -f sabd-service.yaml
 #Web
 kubectl apply -f web-deployment.yaml
 kubectl apply -f web-service.yaml
+kubectl apply -f web-volume.yaml
+kubectl apply -f web-rvolume.yaml
 #SGBD
 kubectl apply -f sgbd-deployment.yaml
 kubectl apply -f sgbd-service.yaml
 kubectl apply -f sgbd-volume.yaml
 kubectl apply -f sgbd-rvolume.yaml
+#Robot
+kubectl apply -f robot-deployment.yaml
+
+```
+
+#### Borrar los objetos
+
+```bash
+#Network
+kubectl delete -f ingress.yaml
+#SABD
+kubectl delete -f sabd-deployment.yaml
+kubectl delete -f sabd-service.yaml
+#Web
+kubectl delete -f web-deployment.yaml
+kubectl delete -f web-service.yaml
+kubectl delete -f web-volume.yaml
+kubectl delete -f web-rvolume.yaml
+#SGBD
+kubectl delete -f sgbd-deployment.yaml
+kubectl delete -f sgbd-service.yaml
+kubectl delete -f sgbd-volume.yaml
+kubectl delete -f sgbd-rvolume.yaml
+#Robot
+kubectl delete -f robot-deployment.yaml
+
 ```
 
 #### Creamos el tunnel

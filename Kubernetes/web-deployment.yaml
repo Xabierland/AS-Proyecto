@@ -12,8 +12,15 @@ spec:
       labels:
         app: web-d
     spec:
+      volumes:
+      - name: web-volume
+        persistentVolumeClaim:
+          claimName: web-rvolume
       containers:
       - name: web-p
         image: xabierland/web:latest
         ports:
         - containerPort: 80
+        volumeMounts:
+        - mountPath: /var/www/html/image
+          name: web-volume

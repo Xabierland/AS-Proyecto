@@ -4,15 +4,15 @@
     <form method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="titulo" class="form-label">Título</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" required>
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Vendo coche" required>
         </div>
         <div class="mb-3">
             <label for="modelo" class="form-label">Modelo</label>
-            <input type="text" class="form-control" id="modelo" name="modelo" required>
+            <input type="text" class="form-control" id="modelo" name="modelo" placerholder="Modelo de vehiculo" required>
         </div>
         <div class="mb-3">
             <label for="num" class="form-label">Número de contacto</label>
-            <input type="text" class="form-control" id="num" name="num">
+            <input type="text" class="form-control" id="num" placeholder="111111111" name="num">
         </div>
         <div class="mb-3">
             <label for="imagen" class="form-label">Subir Imagen</label>
