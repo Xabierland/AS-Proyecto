@@ -46,3 +46,14 @@
         - sgbd
       links:
         - sgbd
+
+    statistic:
+      container_name: statistic
+      restart: on-failure
+      build:
+        context: .
+        dockerfile: Dockerfile-statistic
+      depends_on:
+        - sgbd
+      links:
+        - sgbd
