@@ -2,6 +2,7 @@ import requests
 import random
 import time
 import psycopg2
+import hvac
 
 def login():
     url = 'https://carapi.app/api/auth/login'
@@ -10,10 +11,18 @@ def login():
         'Content-Type': 'application/json'
     }
 
+    # Consigue el token y el secret de Vault
+    client = hvac.Client(url='http://vault:8200', token='xabier')
+    secret_response = client.secrets.kv.v2.read_secret_version(path='apicar')
+    secret_data = secret_response['data']['data']
+
     data = {
-        'api_token': '4d9d4ae7-2417-40ff-a602-03de4ec72a7a',
-        'api_secret': '66b013d96ec7b28c526ebaf6da65dd44'
+        'api_token': secret_data['api_token'],
+        'api_secret': secret_data['api_secret']
     }
+
+    #4d9d4ae7-2417-40ff-a602-03de4ec72a7a
+    #66b013d96ec7b28c526ebaf6da65dd44
 
     response = requests.post(url, headers=headers, json=data)
 
@@ -105,4 +114,4 @@ if __name__ == '__main__':
         makers=getMakers()
         marca, modelo=getModel(makers)
         crearAnuncio(marca, modelo)
-        time.sleep(60)
+        time.sleep(300)
