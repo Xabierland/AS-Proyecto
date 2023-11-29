@@ -47,13 +47,10 @@
       build:
         context: .
         dockerfile: Dockerfile-vault
-      environment:
-        VAULT_DEV_ROOT_TOKEN_ID: "xabier"
       ports:
         - "8200:8200"
         - "8201:8201"
       volumes:
-        - vault-keys:/vault
+        - ./src/vault:/vault/file
   volumes:
     sgbd-data:
-    vault-keys:

@@ -1,1 +1,7 @@
 FROM hashicorp/vault:latest
+
+# Copiar el fichero de configuración de Vault
+COPY ./src/vault/vault.hcl /vault/config/vault.hcl
+
+# Iniciar el servidor de Vault sin modo dev
+CMD ["vault", "server", "-config=/vault/config/vault.hcl"]

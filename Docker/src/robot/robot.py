@@ -4,6 +4,30 @@ import time
 import psycopg2
 import hvac
 
+def obtener_secretos():
+    # Configura los detalles de Vault
+    url_vault = 'http://vault:8200'
+    token_vault = 'hvs.jV0Y7m6ImuCwy9TXKuXCR5G5'
+
+    # Construye la URL de la API de Vault para obtener el secreto
+    ruta_secreto = '/v1/kv/data/carapi'
+    url_api_vault = f'{url_vault}{ruta_secreto}'
+
+    # Configura los encabezados con el token de acceso
+    headers = {'X-Vault-Token': token_vault}
+
+    # Realiza la solicitud para obtener el secreto
+    response = requests.get(url_api_vault, headers=headers)
+
+    # Verifica si la solicitud fue exitosa
+    if response.status_code == 200:
+        secret_data = response.json()['data']['data']
+        return secret_data
+    else:
+        print(f"No se pudo obtener el secreto en la ruta: {ruta_secreto}")
+        print(f"Código de estado: {response.status_code}")
+        return None
+
 def login():
     url = 'https://carapi.app/api/auth/login'
     headers = {
@@ -12,9 +36,7 @@ def login():
     }
 
     # Consigue el token y el secret de Vault
-    client = hvac.Client(url='http://vault:8200', token='xabier')
-    secret_response = client.secrets.kv.v2.read_secret_version(path='apicar')
-    secret_data = secret_response['data']['data']
+    secret_data = obtener_secretos()
 
     data = {
         'api_token': secret_data['api_token'],
