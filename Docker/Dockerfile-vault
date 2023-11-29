@@ -1,7 +1,15 @@
 FROM hashicorp/vault:latest
 
-# Copiar el fichero de configuración de Vault
-COPY ./src/vault/vault.hcl /vault/config/vault.hcl
+ENV VAULT_ADDR=http://127.0.0.1:8200
 
-# Iniciar el servidor de Vault sin modo dev
-CMD ["vault", "server", "-config=/vault/config/vault.hcl"]
+# Copiar el fichero de configuración de Vault
+COPY ./src/vault/config/ /vault/config/
+
+# Script de configuración de Vault
+COPY ./src/vault/script/entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Dar permisos de ejecución al script
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# CMD: Comando para iniciar Vault con configuración personalizada
+CMD ["/usr/local/bin/entrypoint.sh"]

@@ -144,18 +144,18 @@ minikube tunnel
 
 #### Root token
 
-> hvs.jV0Y7m6ImuCwy9TXKuXCR5G5
+```hvs.jV0Y7m6ImuCwy9TXKuXCR5G5```
 
 #### Key
 
-> bNu6he+xaP510PFl7VALlZg2VSHgIGtcmFcUEIxwgCc=
+```bNu6he+xaP510PFl7VALlZg2VSHgIGtcmFcUEIxwgCc=```
 
 ### APICAR
 
 #### API Tokem
 
-> 4d9d4ae7-2417-40ff-a602-03de4ec72a7a
+```4d9d4ae7-2417-40ff-a602-03de4ec72a7a```
 
 #### API Secret
 
-> 66b013d96ec7b28c526ebaf6da65dd44
+```66b013d96ec7b28c526ebaf6da65dd44```

@@ -11,22 +11,29 @@ def obtener_secretos():
 
     # Construye la URL de la API de Vault para obtener el secreto
     ruta_secreto = '/v1/kv/data/carapi'
-    url_api_vault = f'{url_vault}{ruta_secreto}'
+    url_api_vault = url_vault+ruta_secreto
 
     # Configura los encabezados con el token de acceso
     headers = {'X-Vault-Token': token_vault}
 
-    # Realiza la solicitud para obtener el secreto
-    response = requests.get(url_api_vault, headers=headers)
+    try:
+        # Realiza la solicitud para obtener el secreto
+        response = requests.get(url_api_vault, headers=headers)
 
-    # Verifica si la solicitud fue exitosa
-    if response.status_code == 200:
-        secret_data = response.json()['data']['data']
-        return secret_data
-    else:
-        print(f"No se pudo obtener el secreto en la ruta: {ruta_secreto}")
-        print(f"Código de estado: {response.status_code}")
-        return None
+        # Verifica si la solicitud fue exitosa
+        if response.status_code == 200:
+            secret_data = response.json()['data']['data']
+            return secret_data
+        else:
+            print(f"No se pudo obtener el secreto en la ruta: {ruta_secreto}")
+            print(f"Código de estado: {response.status_code}")
+            print(f"Contenido de la respuesta: {response.text}")
+            exit(1)
+
+    except requests.exceptions.ConnectionError as e:
+        print(f"Error de conexión: {e}")
+        print(f"Detalles completos: {e.__traceback__}")
+        exit(1)
 
 def login():
     url = 'https://carapi.app/api/auth/login'
@@ -132,8 +139,9 @@ def crearAnuncio(pMarca, pModelo):
 
 if __name__ == '__main__':
     while(True):
+        time.sleep(30)
         login()
         makers=getMakers()
         marca, modelo=getModel(makers)
         crearAnuncio(marca, modelo)
-        time.sleep(300)
+        
