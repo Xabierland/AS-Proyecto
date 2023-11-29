@@ -51,6 +51,6 @@
         - "8200:8200"
         - "8201:8201"
       volumes:
-        - ./src/vault:/vault/file
+        - ./src/vault/file:/vault/file
   volumes:
     sgbd-data:
