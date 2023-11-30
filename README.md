@@ -25,9 +25,9 @@ En mi caso he decidido crear una aplicación web que permita publicar y ver anun
   - [X] Usable desde un navegador.
   - [X] Los datos de la BBDD deben almacenarse fuera, en un contenedor.
 - [X] Crear imágenes Docker propias.
-  - [x] Se deben subir a Docker Hub.
+  - [X] Se deben subir a Docker Hub.
 - [X] Crear un entorno Docker Compose.
-- [ ] Despliegue Kubernetes equivalente
+- [X] Despliegue Kubernetes equivalente
 - [X] Incluir más funcionalidades en la aplicación mediante imágenes adicionales
 - [ ] Utilizar funcionalidades Docker/Kubernetes no vistas en clase
 
@@ -112,8 +112,6 @@ kubectl apply -f robot-deployment.yaml
 #Vault
 kubectl apply -f vault-deployment.yaml
 kubectl apply -f vault-service.yaml
-kubectl apply -f vault-volume.yaml
-kubectl apply -f vault-rvolume.yaml
 
 ```
 
@@ -140,8 +138,6 @@ kubectl delete -f robot-deployment.yaml
 #Vault
 kubectl delete -f vault-deployment.yaml
 kubectl delete -f vault-service.yaml
-kubectl delete -f vault-volume.yaml
-kubectl delete -f vault-rvolume.yaml
 
 ```
 

@@ -7,5 +7,5 @@ spec:
   selector:
     app: vault-d
   ports:
-  - port: 80
+  - port: 8200
     targetPort: 8200

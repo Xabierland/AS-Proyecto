@@ -12,15 +12,8 @@ spec:
       labels:
         app: vault-d
     spec:
-      volumes:
-      - name: vault-volume
-        persistentVolumeClaim:
-          claimName: vault-rvolume
       containers:
       - name: vault-p
         image: xabierland/vault:latest
         ports:
         - containerPort: 8200
-        volumeMounts:
-        - mountPath: /vault/file
-          name: vault-volume

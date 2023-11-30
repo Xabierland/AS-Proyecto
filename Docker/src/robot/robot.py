@@ -109,8 +109,8 @@ def getModel(pMakers):
 def crearAnuncio(pMarca, pModelo):
     db_params = {
     'dbname': 'db',
-    'user': 'root',
-    'password': 'root',
+    'user': 'xabier',
+    'password': '1234',
     'host': 'sgbd',  # Puedes cambiar esto al servidor de tu base de datos
     'port': '5432'  # Puerto por defecto de PostgreSQL
     }
@@ -136,7 +136,7 @@ def crearAnuncio(pMarca, pModelo):
 
 if __name__ == '__main__':
     while(True):
-        time.sleep(300)
+        time.sleep(60)
         login()
         makers=getMakers()
         marca, modelo=getModel(makers)
