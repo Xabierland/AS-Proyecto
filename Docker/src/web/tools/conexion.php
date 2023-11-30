@@ -2,8 +2,8 @@
 $host = "sgbd";      // Host de la base de datos
 $port = 5432;        // Puerto de la base de datos
 $dbname = "db";      // Nombre de la base de datos
-$user = "root";      // Usuario de la base de datos
-$password = "root";  // Contraseña del usuario
+$user = "xabier";      // Usuario de la base de datos
+$password = "1234";  // Contraseña del usuario
 
 try {
     $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");

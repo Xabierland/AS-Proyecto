@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Iniciar Vault
+# Iniciar configuracion de Vault
 vault server -config=/vault/config/vault.hcl &
 
 # Esperar un momento para asegurarse de que Vault se haya iniciado

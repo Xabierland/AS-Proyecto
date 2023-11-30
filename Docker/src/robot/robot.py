@@ -50,9 +50,6 @@ def login():
         'api_secret': secret_data['api_secret']
     }
 
-    #4d9d4ae7-2417-40ff-a602-03de4ec72a7a
-    #66b013d96ec7b28c526ebaf6da65dd44
-
     response = requests.post(url, headers=headers, json=data)
 
     if response.status_code != 200:
@@ -139,7 +136,7 @@ def crearAnuncio(pMarca, pModelo):
 
 if __name__ == '__main__':
     while(True):
-        time.sleep(30)
+        time.sleep(300)
         login()
         makers=getMakers()
         marca, modelo=getModel(makers)

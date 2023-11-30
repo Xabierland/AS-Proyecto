@@ -13,10 +13,17 @@ spec:
             name: web
             port:
               number: 80
-      - path: /config
+      - path: /db
         pathType: Prefix
         backend:
           service:
             name: sabd
+            port:
+              number: 80
+      - path: /vault
+        pathType: Prefix
+        backend:
+          service:
+            name: vault
             port:
               number: 80

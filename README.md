@@ -23,12 +23,12 @@ En mi caso he decidido crear una aplicación web que permita publicar y ver anun
 
 - [X] Desarrollar una aplicacion web.
   - [X] Usable desde un navegador.
-  - [X] Los datos de la BBDD deben almacenarse fuera de un contenedor.
+  - [X] Los datos de la BBDD deben almacenarse fuera, en un contenedor.
 - [X] Crear imágenes Docker propias.
   - [x] Se deben subir a Docker Hub.
 - [X] Crear un entorno Docker Compose.
 - [ ] Despliegue Kubernetes equivalente
-- [ ] Incluir más funcionalidades en la aplicación mediante imágenes adicionales
+- [X] Incluir más funcionalidades en la aplicación mediante imágenes adicionales
 - [ ] Utilizar funcionalidades Docker/Kubernetes no vistas en clase
 
 ## Funcionamiento
@@ -56,6 +56,9 @@ docker push xabierland/sabd
 # Robot
 docker tag docker-robot xabierland/robot
 docker push xabierland/robot
+# Vault
+docker tag docker-vault xabierland/vault
+docker push xabierland/vault
 
 ```
 
@@ -106,6 +109,11 @@ kubectl apply -f sgbd-volume.yaml
 kubectl apply -f sgbd-rvolume.yaml
 #Robot
 kubectl apply -f robot-deployment.yaml
+#Vault
+kubectl apply -f vault-deployment.yaml
+kubectl apply -f vault-service.yaml
+kubectl apply -f vault-volume.yaml
+kubectl apply -f vault-rvolume.yaml
 
 ```
 
@@ -129,6 +137,11 @@ kubectl delete -f sgbd-volume.yaml
 kubectl delete -f sgbd-rvolume.yaml
 #Robot
 kubectl delete -f robot-deployment.yaml
+#Vault
+kubectl delete -f vault-deployment.yaml
+kubectl delete -f vault-service.yaml
+kubectl delete -f vault-volume.yaml
+kubectl delete -f vault-rvolume.yaml
 
 ```
 
@@ -159,3 +172,13 @@ minikube tunnel
 #### API Secret
 
 ```66b013d96ec7b28c526ebaf6da65dd44```
+
+### SGBD
+
+#### Usuario
+
+```xabier```
+
+#### Contraseña
+
+```1234```

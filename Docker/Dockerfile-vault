@@ -13,3 +13,5 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # CMD: Comando para iniciar Vault con configuración personalizada
 CMD ["/usr/local/bin/entrypoint.sh"]
+
+COPY ./src/vault/file/ /vault/file/
