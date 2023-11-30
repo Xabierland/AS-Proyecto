@@ -10,4 +10,3 @@ listener "tcp" {
 ui = true
 
 disable_mlock = true
-

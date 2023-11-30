@@ -11,7 +11,7 @@ COPY ./src/vault/script/entrypoint.sh /usr/local/bin/entrypoint.sh
 # Dar permisos de ejecución al script
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
+COPY ./src/vault/file/ /vault/file/
+
 # CMD: Comando para iniciar Vault con configuración personalizada
 CMD ["/usr/local/bin/entrypoint.sh"]
-
-COPY ./src/vault/file/ /vault/file/

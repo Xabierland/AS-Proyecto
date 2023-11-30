@@ -1,7 +1,8 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx, longtable, float, titlesec, hyperref}
+\usepackage{graphicx, longtable, float, titlesec, hyperref, enumitem}
+\usepackage[left=4cm, right=4cm, top=3cm, bottom=3cm]{geometry}
 
 \hypersetup{
     hidelinks = true
@@ -30,75 +31,78 @@
 
     \tableofcontents
     \chapter{Introducción}
-        La presente tarea pretende explorar la implementación de una aplicación web con una base de datos incorporada, y su despliegue utilizando Docker y Kubernetes. Estos dos entornos tecnológicos ofrecen soluciones esenciales para desafíos contemporáneos en el desarrollo de aplicaciones web, al proporcionar un conjunto de herramientas y prácticas que simplifican la orquestación, escalabilidad y seguridad de dichas aplicaciones.\\
+        Esta tarea tiene como objetivo explorar la implementación de una aplicación web con una base de datos incorporada, así como su despliegue utilizando Docker y Kubernetes. Estos dos entornos tecnológicos ofrecen soluciones fundamentales para abordar los desafíos actuales en el desarrollo de aplicaciones web al proporcionar un conjunto de herramientas y prácticas que simplifican la orquestación, escalabilidad y seguridad de dichas aplicaciones.\\
 
-        Docker, una plataforma de contenedores, permite a los desarrolladores encapsular aplicaciones y sus dependencias en entornos aislados. Esta metodología de encapsulamiento elimina problemas de compatibilidad, garantiza la consistencia y facilita la migración de aplicaciones entre distintos entornos. Además, Docker permite una gestión eficiente de recursos, lo que contribuye al despliegue eficaz de aplicaciones web.\\
+        Docker, como plataforma de contenedores, permite a los desarrolladores encapsular aplicaciones y sus dependencias en entornos aislados. Esta metodología de encapsulamiento elimina problemas de compatibilidad, asegura la consistencia y facilita la migración de aplicaciones entre diferentes entornos. Además, Docker posibilita una gestión eficiente de recursos, contribuyendo así al despliegue efectivo de aplicaciones web.\\
         
-        Kubernetes, por su parte, se alza como la solución definitiva para la orquestación de contenedores en clústeres. Esta plataforma, desarrollada por Google, simplifica la administración y escalabilidad de aplicaciones web a gran escala. Kubernetes automatiza la distribución de contenedores, garantizando su disponibilidad, escalabilidad y equilibrio de carga, lo que resulta esencial para aplicaciones que deben manejar un alto volumen de tráfico o que requieren una alta disponibilidad.\\
+        Por otro lado, Kubernetes emerge como la solución definitiva para la orquestación de contenedores en clústeres. Desarrollada por Google, esta plataforma simplifica la administración y escalabilidad de aplicaciones web a gran escala. Kubernetes automatiza la distribución de contenedores, garantizando su disponibilidad, escalabilidad y equilibrio de carga, aspectos esenciales para aplicaciones que deben manejar un alto volumen de tráfico o que requieren una alta disponibilidad.\\
         
-        La combinación de Docker y Kubernetes se ha vuelto esencial para implementar aplicaciones web modernas, ya que proporciona una base sólida para desarrollar, desplegar y gestionar sistemas en un entorno altamente dinámico y demandante. Este enfoque promete optimizar los recursos, reducir los tiempos de despliegue y garantizar la confiabilidad y la seguridad de las aplicaciones en un mundo cada vez más orientado a la nube.\\
+        La combinación de Docker y Kubernetes se ha vuelto esencial para implementar aplicaciones web modernas, proporcionando una base sólida para el desarrollo, despliegue y gestión de sistemas en un entorno altamente dinámico y desafiante. Este enfoque promete optimizar los recursos, reducir los tiempos de despliegue y asegurar la confiabilidad y seguridad de las aplicaciones en un mundo cada vez más centrado en la nube.\\
         
-        El presente informe se sumergirá en la creación de una aplicación web con una base de datos y el posterior despliegue mediante Docker y Kubernetes.
+        Este informe se sumergirá en la creación de una aplicación web con una base de datos y su posterior despliegue mediante Docker y Kubernetes.
+
+        \vfill
+        \begin{center}
+            \href{https://github.com/Xabierland/AS-Proyecto}{GitHub del proyecto}
+        \end{center}
     \chapter{Descripción de la aplicación}
-    \chapter{Tareas realizadas}
-        \section{Desarrollar una aplicación web}
-            La primera tarea a realizar en este proyecto es la realizacion de una aplicacion web.
-            En mi caso, como ya he comentado en la descripción de la aplicación, he decidido realizar una aplicación web para la compra y venta de coches de segunda mano.
-            Dicha aplicacion web trabajara con las siguientes tecnológiás:
-            \begin{itemize}
-                \item HTML
-                \begin{itemize}
-                    \item Usado para generar la estructura de la pagina Web.
-                \end{itemize}
-                \item CSS
-                \begin{itemize}
-                    \item Usado para dar estilo a la pagina Web.
-                    \item Se ha utilizado la plantilla de Bootstrap.
-                \end{itemize}
-                \item PostgreSQL
-                \begin{itemize}
-                    \item Usado para la base de datos.
-                    \item Almacena los datos de los usuarios y los coches.
-                    \item Se ha instalado un gestor de base de datos Adminer.
-                \end{itemize}
-                \item Apache
-                \begin{itemize}
-                    \item Usado para el servidor web.
-                    \item Se le ha instalado PHP y varias extensiones para comunicarse con la base de datos.
-                \end{itemize}
-                \item PHP
-                \begin{itemize}
-                    \item Se utiliza tanto para obtener datos como para enviarlos al servidor de base de datos.
-                    \item Tambien se encarga de la seguridad de la pagina saneando los campos y hasheando las entradas.
-                \end{itemize}
-            \end{itemize}
-            El codigo de esta aplicacion se puede encontrar en \url{https://github.com/Xabierland/AS-Proyecto/tree/master/src}
-        \clearpage
-        \section{Implementación de imágenes Docker}
-            
-        \clearpage
-        \section{Creacion de entorno Docker Compose}
-        \clearpage
-        \section{Creacion de despliegue Kubernetes}
-        \clearpage
-        \section{Inclusion de images extras}
-        \clearpage
-        \section{Nuevas funcionalidades}
-    \chapter{Declaración sobre asistentes virtuales}
-        Para la realización de este proyecto se han utilizado principalemente dos asistentes virtuales, ChatGPT de OpenAI y GitHub Copilot de GitHub.\\
+        El proyecto consiste en un entorno web enfocado a la compra y venta de coches de segunda mano.
+        Una vez accedas a la pagina web podras ver un listado de vehiculos en venta, con los datos del vehiculo y del vendedor para poder comunicarte con el.
+        Ademas, podras crearte una cuenta e iniciar sesion para poder publicar tu mismo un vehiculo y ponerlo a la venta.\\
 
-        El uso de ChatGPT ha sido principalmente para tareas de picado de codigo repititivas y para obtener ideas para implementar en la aplicación.\\
+        Para almacenar tantos los usuarios como los anuncios que estos generan se ha implementado una base de datos PostgreSQL.\\
 
-        El uso de GitHub Copilot ha sido en cambio el autocompletado que ofrece desde Visual Studio Code para agilizar el desarrollo y para facilitar en gran parte la escritura en ficheros .yaml.\\
+        Dado que esto es un proyecto y por lo tanto no existen otros usuarios, se ha creado un programa en Python que cada cinco minutos genera un anuncio en la web.
+        Para ello el programa se comunica con una API de modelos de coches y obtiene un modelo aleatorio con el que creara un anuncio.\\
+
+        Ademas, para facilitar el desarroyo y mantenimiento de la aplicacion se ha agregado un panel de administracion para la base de datos.
+        En este caso se ha elegido Adminer, una herramienta web que permite gestionar diferentes sistemas de gestion de bases de datos entre los que se incluye PostgreSQL.\\
+
+        Para acabar, se ha implementado un gestor de claves llamado Vault. Este gestor nos permite almacenar de forma segura las claves de nuestro proyecto sin la necesidad de tenerlas escritas explicitamente en el codigo fuente de nuestra aplicacion.
+    \chapter{Listado de las tareas realizadas}
+        \begin{itemize}
+            \item Desarroyo de una aplicación web.
+            \item Creacion de una imagen Docker propia.
+            \item Creacion de un entorno Docker Compose.
+            \item Creacion de un despliegue Kubernetes equivalente.
+            \item Inclusion de imágenes adicionales.
+            \item Utilizacion de funcionalidades Docker/Kubernetes no vistas en clase.
+        \end{itemize}
+    \chapter{Explicaciones de las tareas realizadas}
+        \section{Desarroyo de una aplicación web.}
+            El desarroyo de la aplicacion web se puede dividir en dos partes, el backend y el frontend.\\
+
+            El frontend se ha desarroyado utilizando HTML y CSS.
+            Para facilitar el desarroyo se ha utilizado Bootstrap, que nos permite crear paginas web responsive de forma sencilla.\\
+
+            El backend se ha desarroyado utilizando PHP.
+            PHP se utiliza para gestionar las conexiones de la base de datos como puede ser el registrar o inicio de sesion de un usuario, la creacion de anuncios y la obtencion y muestra de los datos de los anuncios.\\
+
+            Esta aplicacion se ha implementado en un servidor web Apache2 en un contenedor Docker. Para ello lo primero ha sido usar la imagen de php llamada php:8.2-apache la cual ya incluye Apache2 y PHP. 
+            Aun asi, ha sido necesario instalar de forma algunas librerias como el pdo de PostgreSQL para que PHP se pudiese conectar despues con la base de datos. 
+            Despues solamente ha sido necesario copiar los ficheros de la aplicacion en el directorio /var/www/html/ del contenedor con los permisos correctos y activar un modulo de apache2.\\
+        \clearpage
+        \section{Creacion de una imagen Docker propia.} 
+        \clearpage
+        \section{Creacion de un entorno Docker Compose.}
+        \clearpage
+        \section{Creacion de un despliegue Kubernetes equivalente.}
+        \clearpage
+        \section{Inclusion de imágenes adicionales.}
+        \clearpage
+        \section{Utilizacion de funcionalidades Docker/Kubernetes no vistas en clase.}
+    \chapter{Declaración sobre uso de asistentes virtuales}
+        Para la realizacion de este proyecto se ha utilizado dos asistentes virtuales, GPT-3.5 y GitHub Copilot.
+        Ambos se han usado principalmente para la tarea de picado de codigo resolucion de errores.
     \chapter{Bibliografia}
-    \begin{itemize}
-        \item GPT-3.5. (2023). Respuesta a una pregunta sobre PHP. OpenAI. \url{https://www.openai.com/}
-        \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
-        \item Docker. (2021). Documentación. Docker. \url{https://docs.docker.com/}
-        \item Kubernetes. (2021). Documentación. Kubernetes. \url{https://kubernetes.io/docs/home/}
-        \item PHP. (2021). Documentación. PHP. \url{https://www.php.net/docs.php}
-        \item PostgreSQL. (2021). Documentación. PostgreSQL. \url{https://www.postgresql.org/docs/}
-        \item Apache. (2021). Documentación. Apache. \url{https://httpd.apache.org/docs/}
-        \item Minikube (2023). Documentación Minikube. \url{https://minikube.sigs.k8s.io/docs/handbook/}
-    \end{itemize}
+        \begin{itemize}
+            \item GPT-3.5. (2023). Respuesta a una pregunta sobre PHP. OpenAI. \url{https://www.openai.com/}
+            \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
+            \item Docker. (2021). Documentación. Docker. \url{https://docs.docker.com/}
+            \item Kubernetes. (2021). Documentación. Kubernetes. \url{https://kubernetes.io/docs/home/}
+            \item PHP. (2021). Documentación. PHP. \url{https://www.php.net/docs.php}
+            \item PostgreSQL. (2021). Documentación. PostgreSQL. \url{https://www.postgresql.org/docs/}
+            \item Apache. (2021). Documentación. Apache. \url{https://httpd.apache.org/docs/}
+            \item Minikube (2023). Documentación Minikube. \url{https://minikube.sigs.k8s.io/docs/handbook/}
+        \end{itemize}
 \end{document}
