@@ -1,8 +1,9 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx, longtable, float, titlesec, hyperref, enumitem}
-\usepackage[left=4cm, right=4cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{graphicx, longtable, float, titlesec, hyperref, enumitem, dingbat}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=4.3cm]{geometry}
 
 \hypersetup{
     hidelinks = true
@@ -43,7 +44,7 @@
 
         \vfill
         \begin{center}
-            \href{https://github.com/Xabierland/AS-Proyecto}{GitHub del proyecto}
+            \textcolor{Cyan}{\href{https://github.com/Xabierland/AS-Proyecto}{GitHub del proyecto}}
         \end{center}
     \chapter{Descripción de la aplicación}
         El proyecto consiste en un entorno web enfocado a la compra y venta de coches de segunda mano.
@@ -61,36 +62,71 @@
         Para acabar, se ha implementado un gestor de claves llamado Vault. Este gestor nos permite almacenar de forma segura las claves de nuestro proyecto sin la necesidad de tenerlas escritas explicitamente en el codigo fuente de nuestra aplicacion.
     \chapter{Listado de las tareas realizadas}
         \begin{itemize}
-            \item Desarroyo de una aplicación web.
-            \item Creacion de una imagen Docker propia.
-            \item Creacion de un entorno Docker Compose.
-            \item Creacion de un despliegue Kubernetes equivalente.
-            \item Inclusion de imágenes adicionales.
-            \item Utilizacion de funcionalidades Docker/Kubernetes no vistas en clase.
+            \item Tareas obligatorias:
+            \begin{itemize}
+                \item Desarroyo de una aplicación web. \checkmark
+                \item Creacion de una imagen Docker propia. \checkmark
+                \item Creacion de un entorno Docker Compose. \checkmark
+            \end{itemize}
+            \item Tareas opcionales:
+            \begin{itemize}
+                \item Creacion de un despliegue Kubernetes equivalente. \checkmark
+                \item Inclusion de imágenes adicionales. \checkmark
+                \item Utilizacion de funcionalidades Docker/Kubernetes no vistas en clase.
+            \end{itemize}
         \end{itemize}
     \chapter{Explicaciones de las tareas realizadas}
         \section{Desarroyo de una aplicación web.}
-            El desarroyo de la aplicacion web se puede dividir en dos partes, el backend y el frontend.\\
-
+            El desarroyo de la aplicacion web se puede dividir en tres partes, el backend, el frontend y la base de datos.
             El frontend se ha desarroyado utilizando HTML y CSS.
-            Para facilitar el desarroyo se ha utilizado Bootstrap, que nos permite crear paginas web responsive de forma sencilla.\\
-
+            Para facilitar el desarroyo se ha utilizado Bootstrap, que nos permite crear paginas web responsive de forma sencilla.
             El backend se ha desarroyado utilizando PHP.
             PHP se utiliza para gestionar las conexiones de la base de datos como puede ser el registrar o inicio de sesion de un usuario, la creacion de anuncios y la obtencion y muestra de los datos de los anuncios.\\
+            Para almacenar la informacion de la web he usado PostgreSQL.
+            PostgreSQL es un sistema de gestión de bases de datos relacional orientado a objetos y de código abierto.\\
 
-            Esta aplicacion se ha implementado en un servidor web Apache2 en un contenedor Docker. Para ello lo primero ha sido usar la imagen de php llamada php:8.2-apache la cual ya incluye Apache2 y PHP. 
-            Aun asi, ha sido necesario instalar de forma algunas librerias como el pdo de PostgreSQL para que PHP se pudiese conectar despues con la base de datos. 
-            Despues solamente ha sido necesario copiar los ficheros de la aplicacion en el directorio /var/www/html/ del contenedor con los permisos correctos y activar un modulo de apache2.\\
+            Todo esto he creado dos imagenes Docker, una para el frontend y el backend y otra para la base de datos.\\
+
+            La primera imagen se ha creado a partir de la imagen oficial de PHP y Apache.
+            Para ello he instalado las dependencias necesarias para el funcionamiento de la aplicacion y la comunicacion con la base de datos y tambien he copiado todos los arhivos necesarios para ello con los permisos correctos.
+            Esta aplicacion esta disponible en el puerto 80.\\
+
+            La segunda imagen se ha creado a partir de la imagen oficial de PostgreSQL.
+            En este caso lo unico que se ha hecho es copiar una archivo .sql con la estructura de la base de datos y con los datos de prueba.
+            Esta base de datos esta disponible en el puerto 5432.
+            Tambien se han definido las variables de entorno necesarias para la creacion de la base de datos y el usuario.
+            Para acabar he desactivado la cuenta root como medida de seguridad.\\
+
         \clearpage
         \section{Creacion de una imagen Docker propia.} 
+            Dado que la pagina web es un proyecto y por lo tanto no existen otros usuarios, he decidido crear un programa que cada minuto genera un anuncio en la web.
+            Para la creacion de la imagen he utilizado la imagen oficial de Python Slim.
+            He elegido esta imagen dado el reducido tamaño de la misma.
+            Para la creacion de la imagen he copiado el archivo .py con el programa y he instalado las dependencias necesarias para su funcionamiento.
+            El funcionamiento del programa es el siguiente:
+            \begin{enumerate}
+                \item El programa obtiene las claves necesarias para la comunicacion de la API de Vault.
+                \item Con las claves obtenidas se identifica con la API de \href{https://carapi.app/api#/}{carapi}.
+                \item Se obtiene un modelo aleatorio de coche.
+                \item Se buscas la marca a la que pertenece el modelo.
+                \item Se escribe el anuncio directamente en la base de datos.
+                \item Se espera un minuto y se repite el proceso.
+            \end{enumerate}
+            De esta forma se generan anuncion de forma automatica y se simula el funcionamiento de la web manteniendo ademas la seguridad gracias a no dejar implicitas las claves.
         \clearpage
         \section{Creacion de un entorno Docker Compose.}
+            Para orquestar el funcionamiento de la aplicacion con las diferentes imagenes que ya he nombrado y la que queda por nombrar he utilizado Docker Compose.
+
         \clearpage
         \section{Creacion de un despliegue Kubernetes equivalente.}
+            \textbf{Aviso:} Para la realizacion de esta tarea he utilizado Minikube. Minikube es una herramienta que nos permite crear un cluster de Kubernetes en local. El formato del .yaml del Ingress no es exactamente igual en Kubernetes de GCP que el de Minikube, ten esto en cuenta si vas a desplegarlo en GCP. Tambien tener en cuenta que Minikube no trae los Ingress activados por defectos y debe ser activados mediante \texttt{minikube addons enable ingress}\\
+
+
         \clearpage
         \section{Inclusion de imágenes adicionales.}
         \clearpage
         \section{Utilizacion de funcionalidades Docker/Kubernetes no vistas en clase.}
+        \clearpage
     \chapter{Declaración sobre uso de asistentes virtuales}
         Para la realizacion de este proyecto se ha utilizado dos asistentes virtuales, GPT-3.5 y GitHub Copilot.
         Ambos se han usado principalmente para la tarea de picado de codigo resolucion de errores.
