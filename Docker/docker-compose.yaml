@@ -50,7 +50,5 @@
         dockerfile: Dockerfile-vault
       ports:
         - "8200:8200"
-#      volumes:
-#        - ./src/vault/file:/vault/file
   volumes:
     sgbd-data:
