@@ -11,13 +11,12 @@
         - "80:80"
       volumes:
         - ./src/web:/var/www/html
+      depends_on:
+        sgbd:
+          condition: service_healthy
       networks:
         - frontend
         - backend
-      links:
-        - sabd
-      depends_on:
-        - sabd
     sgbd:
       container_name: sgbd
       build:
@@ -29,17 +28,6 @@
         - sgbd-data:/var/lib/postgresql/data
       networks:
         - backend
-    sabd:
-      container_name: sabd
-      image: adminer:latest
-      ports:
-        - "8080:8080"
-      depends_on:
-        - sgbd
-      links: 
-        - sgbd
-      networks:
-        - backend
     robot:
       container_name: robot
       build:
@@ -48,9 +36,16 @@
       depends_on:
         sgbd:
           condition: service_healthy
-      links:
-        - sgbd
-        - vault
+      networks:
+        - backend
+    sabd:
+      container_name: sabd
+      image: adminer:latest
+      ports:
+        - "8080:8080"
+      depends_on:
+        sgbd:
+          condition: service_healthy
       networks:
         - backend
     vault:

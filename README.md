@@ -94,9 +94,6 @@ minikube dashboard
 ```bash
 #Network
 kubectl apply -f ingress.yaml
-#SABD
-kubectl apply -f sabd-deployment.yaml
-kubectl apply -f sabd-service.yaml
 #Web
 kubectl apply -f web-deployment.yaml
 kubectl apply -f web-service.yaml
@@ -109,6 +106,9 @@ kubectl apply -f sgbd-volume.yaml
 kubectl apply -f sgbd-rvolume.yaml
 #Robot
 kubectl apply -f robot-deployment.yaml
+#SABD
+kubectl apply -f sabd-deployment.yaml
+kubectl apply -f sabd-service.yaml
 #Vault
 kubectl apply -f vault-deployment.yaml
 kubectl apply -f vault-service.yaml
@@ -120,9 +120,6 @@ kubectl apply -f vault-service.yaml
 ```bash
 #Network
 kubectl delete -f ingress.yaml
-#SABD
-kubectl delete -f sabd-deployment.yaml
-kubectl delete -f sabd-service.yaml
 #Web
 kubectl delete -f web-deployment.yaml
 kubectl delete -f web-service.yaml
@@ -135,6 +132,9 @@ kubectl delete -f sgbd-volume.yaml
 kubectl delete -f sgbd-rvolume.yaml
 #Robot
 kubectl delete -f robot-deployment.yaml
+#SABD
+kubectl delete -f sabd-deployment.yaml
+kubectl delete -f sabd-service.yaml
 #Vault
 kubectl delete -f vault-deployment.yaml
 kubectl delete -f vault-service.yaml
@@ -170,6 +170,14 @@ minikube tunnel
 ```66b013d96ec7b28c526ebaf6da65dd44```
 
 ### SGBD
+
+#### Host
+
+```sgbd```
+
+#### Database
+
+```db```
 
 #### Usuario
 
