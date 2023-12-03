@@ -47,164 +47,158 @@
         \end{center}
     \chapter{Descripción de la aplicación}
         El proyecto consiste en un entorno web enfocado a la compra y venta de coches de segunda mano.
-        Una vez accedas a la pagina web podras ver un listado de vehiculos en venta, con los datos del vehiculo y del vendedor para poder comunicarte con el.
-        Ademas, podras crearte una cuenta e iniciar sesion para poder publicar tu mismo un vehiculo y ponerlo a la venta.\\
+        Una vez accedas a la página web podrás ver un listado de vehículos en venta, con los datos del vehículo y del vendedor para poder comunicarte con él.
+        Además, podrás crearte una cuenta e iniciar sesión para poder publicar tú mismo un vehículo y ponerlo a la venta.\\
 
         Para almacenar tantos los usuarios como los anuncios que estos generan se ha implementado una base de datos PostgreSQL.\\
 
-        Dado que esto es un proyecto y por lo tanto no existen otros usuarios, se ha creado un programa en Python que cada cinco minutos genera un anuncio en la web.
+        Dado que esto es un proyecto y por lo tanto no existen otros usuarios, se ha creado un programa en Python que cada minuto genera un anuncio en la web.
         Para ello el programa se comunica con una API de modelos de coches y obtiene un modelo aleatorio con el que creara un anuncio.\\
 
-        Ademas, para facilitar el desarroyo y mantenimiento de la aplicacion se ha agregado un panel de administracion para la base de datos.
-        En este caso se ha elegido Adminer, una herramienta web que permite gestionar diferentes sistemas de gestion de bases de datos entre los que se incluye PostgreSQL.\\
+        Como añadido, para facilitar el desarrollo y mantenimiento de la aplicación se ha agregado un panel de administración para la base de datos.
+        En este caso se ha elegido Adminer, una herramienta web que permite gestionar diferentes sistemas de gestión de bases de datos entre los que se incluye PostgreSQL.\\
 
-        Para acabar, se ha implementado un gestor de claves llamado Vault. Este gestor nos permite almacenar de forma segura las claves de nuestro proyecto sin la necesidad de tenerlas escritas explicitamente en el codigo fuente de nuestra aplicacion.
+        Para acabar, se ha implementado un gestor de claves llamado Vault. Este gestor nos permite almacenar de forma segura las claves de nuestro proyecto sin la necesidad de tenerlas escritas explícitamente en el código fuente de nuestra aplicación.\\
     \chapter{Listado de las tareas realizadas}
         \begin{itemize}
             \item Tareas obligatorias:
             \begin{itemize}
-                \item Desarroyo de una aplicación web. \checkmark
-                \item Creacion de una imagen Docker propia. \checkmark
-                \item Creacion de un entorno Docker Compose. \checkmark
+                \item Desarrollo de una aplicación web. \checkmark
+                \item Creación de una imagen Docker propia. \checkmark
+                \item Creación de un entorno Docker Compose. \checkmark
             \end{itemize}
             \item Tareas opcionales:
             \begin{itemize}
-                \item Creacion de un despliegue Kubernetes equivalente. \checkmark
-                \item Inclusion de imágenes adicionales. \checkmark
-                \item Utilizacion de funcionalidades Docker/Kubernetes no vistas en clase. \checkmark
+                \item Creación de un despliegue Kubernetes equivalente. \checkmark
+                \item Inclusión de imágenes adicionales. \checkmark
+                \item Utilización de funcionalidades Docker/Kubernetes no vistas en clase. \checkmark
             \end{itemize}
         \end{itemize}
     \chapter{Explicaciones de las tareas realizadas}
-        \section{Desarroyo de una aplicación web.}
-            El desarroyo de la aplicacion web se puede dividir en tres partes, el backend, el frontend y la base de datos.
-            El frontend se ha desarroyado utilizando HTML y CSS.
-            Para facilitar el desarroyo se ha utilizado Bootstrap, que nos permite crear paginas web responsive de forma sencilla.
-            El backend se ha desarroyado utilizando PHP.
-            PHP se utiliza para gestionar las conexiones de la base de datos como puede ser el registrar o inicio de sesion de un usuario, la creacion de anuncios y la obtencion y muestra de los datos de los anuncios.
-            Para almacenar la informacion de la web he usado PostgreSQL.
+        \section{Desarrollo de una aplicación web.}
+            El desarrollo de la aplicación web se puede dividir en tres partes, el backend, el frontend y la base de datos.
+            El frontend se ha desarrollado utilizando HTML y CSS.
+            Para facilitar el desarrollo se ha utilizado Bootstrap, que nos permite crear páginas web responsive de forma sencilla.
+            El backend se ha desarrollado utilizando PHP.
+            PHP se utiliza para gestionar las conexiones de la base de datos como puede ser el registrar o inicio de sesión de un usuario, la creación de anuncios y la obtención y muestra de los datos de los anuncios.
+            Para almacenar la información de la web he usado PostgreSQL.
             PostgreSQL es un sistema de gestión de bases de datos relacional orientado a objetos y de código abierto.\\
 
-            Todo esto he creado dos imagenes Docker mediante archivos Dockerfile, uno para el frontend y el backend y otro para la base de datos.\\
+            Todo esto he creado dos imágenes Docker mediante archivos Dockerfile, uno para el frontend y el backend y otro para la base de datos.\\
 
             La primera imagen se ha creado a partir de la imagen oficial de PHP y Apache.
-            Para ello he instalado las dependencias necesarias para el funcionamiento de la aplicacion y la comunicacion con la base de datos y tambien he copiado todos los arhivos necesarios para ello con los permisos correctos.
-            Esta aplicacion esta disponible en el puerto 80.\\
+            Para ello he instalado las dependencias necesarias para el funcionamiento de la aplicación y la comunicación con la base de datos y también he copiado todos los archivos necesarios para ello con los permisos correctos.
+            Esta aplicación está disponible en el puerto 80.\\
 
             La segunda imagen se ha creado a partir de la imagen oficial de PostgreSQL.
-            En este caso lo unico que se ha hecho es copiar una archivo .sql con la estructura de la base de datos y con los datos de prueba.
-            Esta base de datos esta disponible en el puerto 5432.
-            Tambien se han definido las variables de entorno necesarias para la creacion de la base de datos y el usuario.
+            En este caso lo único que se ha hecho es copiar un archivo .sql con la estructura de la base de datos y con los datos de prueba.
+            Esta base de datos está disponible en el puerto 5432.
+            También se han definido las variables de entorno necesarias para la creación de la base de datos y el usuario.
             Para acabar he desactivado la cuenta root como medida de seguridad.\\
-
         \clearpage
-        \section{Creacion de una imagen Docker propia.} 
-            Dado que la pagina web es un proyecto y por lo tanto no existen otros usuarios, he decidido crear un programa que cada minuto genera un anuncio en la web.
-            Para la creacion de la imagen he utilizado la imagen oficial de Python Slim.
-            He elegido esta imagen dado el reducido tamaño de la misma.
-            Para la creacion de la imagen he copiado el archivo .py con el programa y he instalado las dependencias necesarias para su funcionamiento.
+        \section{Creación de una imagen Docker propia.} 
+            Dado que la página web es un proyecto y por lo tanto no existen otros usuarios, he decidido crear un programa que cada minuto genera un anuncio en la web.
+            Para la creación de la imagen he utilizado la imagen oficial de Python Slim.
+            He elegido esta imagen dado el reducido tamaño de esta.
+            Para la creación de la imagen he copiado el archivo .py con el programa y he instalado las dependencias necesarias para su funcionamiento.
             El funcionamiento del programa es el siguiente:
             \begin{enumerate}
-                \item El programa obtiene las claves necesarias para la comunicacion de la API de Vault.
+                \item El programa obtiene las claves necesarias para la comunicación de la API de Vault.
                 \item Con las claves obtenidas se identifica con la API de \href{https://carapi.app/api#/}{carapi}.
                 \item Se obtiene un modelo aleatorio de coche.
                 \item Se buscas la marca a la que pertenece el modelo.
                 \item Se escribe el anuncio directamente en la base de datos.
                 \item Se espera un minuto y se repite el proceso.
             \end{enumerate}
-            De esta forma se generan anuncion de forma automatica y se simula el funcionamiento de la web manteniendo ademas la seguridad gracias a no dejar implicitas las claves.
+            De esta forma se generan anuncios de forma automática y se simula el funcionamiento de la web manteniendo además la seguridad gracias a no dejar implícitas las claves.
         \clearpage
-        \section{Creacion de un entorno Docker Compose.}
-            Para orquestar la creacion de las imagenes y el levantamiento de los contenedores he utilizado Docker Compose.
-            Docker Compose es una herramienta que nos permite definir y ejecutar aplicaciones Docker de multiples contenedores y que se comuniquen entre ellos.
-            Para ello he creado un archivo docker-compose.yaml en el que he definido los servicios necesarios con sus respectivas imagenes, puertos y volumenes.
-            El comando para levantar los contenedores y crear las imagenes todo a la vez es
+        \section{Creación de un entorno Docker Compose.}
+            Para orquestar la creación de las imágenes y el levantamiento de los contenedores he utilizado Docker Compose.
+            Docker Compose es una herramienta que nos permite definir y ejecutar aplicaciones Docker de múltiples contenedores y que se comuniquen entre ellos.
+            Para ello he creado un archivo docker-compose.yaml en el que he definido los servicios necesarios con sus respectivas imágenes, puertos y volúmenes.
+            El comando para levantar los contenedores y crear las imágenes todo a la vez es
             \begin{center}
                 \texttt{docker compose up -d --build}
             \end{center}
-            El listado de puertos que utiliza la aplicacion es el siguiente:
+            El listado de puertos que utiliza la aplicación es el siguiente:
             \begin{itemize}
                 \item 80: Puerto de la web.
                 \item 5432: Puerto de la base de datos.
-                \item 8080: Puerto del panel de administracion de la base de datos.
+                \item 8080: Puerto del panel de administración de la base de datos.
                 \item 8200: Puerto de la API de Vault.
             \end{itemize}
-
         \clearpage
-        \section{Creacion de un despliegue Kubernetes equivalente.}
-            \textbf{Aviso:} Para la realizacion de esta tarea he utilizado Minikube. Minikube es una herramienta que nos permite crear un cluster de Kubernetes en local. El formato del .yaml del Ingress no es exactamente igual en Kubernetes de GCP que el de Minikube, ten esto en cuenta si vas a desplegarlo en GCP. Tambien tener en cuenta que Minikube no trae los Ingress activados por defectos y debe ser activados mediante:
+        \section{Creación de un despliegue Kubernetes equivalente.}
+            \textbf{Aviso:} Para la realización de esta tarea he utilizado Minikube. Minikube es una herramienta que nos permite crear un clúster de Kubernetes en local. El formato del .yaml del Ingress no es exactamente igual en Kubernetes de GCP que el de Minikube, ten esto en cuenta si vas a desplegarlo en GCP. También tener en cuenta que Minikube no trae los Ingress activados por defectos y debe ser activados mediante:
             \begin{center}
                 \texttt{minikube addons enable ingress}
             \end{center}
-            Para el despligue he usado cinco objetos de Kubernetes, Deployment, Service, PersistentVolume, PersistentVolumeClaim e Ingress.\\
+            Para el despliegue he usado cinco objetos de Kubernetes, Deployment, Service, PersistentVolume, PersistentVolumeClaim e Ingress.\\
 
-            El Deployment es el objeto que se encarga de crear los pods y de asegurarse de que estos esten en el estado y numero deseado.
-            He creado uno por cada imagen que he creado asignandole un nombre, una imagen de mi DockerHub y el puerto en caso de que haga uso de uno.\\
+            El Deployment es el objeto que se encarga de crear los pods y de asegurarse de que estos estén en el estado y numero deseado.
+            He creado uno por cada imagen que he creado asignándole un nombre, una imagen de mi DockerHub y el puerto en caso de que haga uso de uno.\\
 
-            El Service es el objeto que se encarga de asignar una IP y un puerto a los pods para que puedan ser accedidos.
-            He creado uno para cada imagen a la que necesite acceder desde otro pod asignandole un nombre identico al usado en el Docker.
-            Estos servicios son de tipo ClusterIP, lo que significa que solo pueden ser accedidos desde dentro del cluster.\\
+            El Service es el objeto que se encarga de asignar una IP y un puerto a los pods para que puedan ser identificados.
+            He creado uno para cada imagen a la que necesite acceder desde otro pod asignándole un nombre idéntico al usado en el Docker.
+            Estos servicios son de tipo ClusterIP, lo que significa que solo pueden ser accedidos desde dentro del clúster.\\
 
             El PersistentVolume es el objeto que se encarga de crear un volumen persistente en el nodo para que los datos no se pierdan al reiniciar el pod.
-            He creado uno para la base de datos y otro para la web asignandole un nombre, un tamaño y un tipo de almacenamiento.
+            He creado uno para la base de datos y otro para la web asignándole un nombre, un tamaño y un tipo de almacenamiento.
             El tipo de almacenamiento es hostPath, lo que significa que el volumen se crea en el nodo y no en un servicio externo.\\
 
             El PersistentVolumeClaim es el objeto que se encarga de reclamar el volumen persistente para que pueda ser utilizado por el pod.\\
 
-            El Ingress es el objeto que se encarga de enrutar el trafico a los servicios correspondientes.
-            He creado uno con redirecciones a la web y otro al panel de administracion de la base de datos.
+            El Ingress es el objeto que se encarga de enrutar el tráfico a los servicios correspondientes.
+            He creado uno con redirecciones a la web y otro al panel de administración de la base de datos.
             Para ello he definido las reglas de enrutamiento y el servicio al que deben ser redirigidas.
-            En caso de no especificar ruta se redirige a la web mientras que usando /db se redirige al panel de administracion de la base de datos.\\
-
-            Para el despligue he utilizado el comando:
-            \begin{center}
-                \texttt{kubectl apply -f <archivo.yaml>}
-            \end{center}
-
-            Y para comprobar que todo funciona correctamente he utilizado el comando:
-            \begin{center}
-                \texttt{minikube tunnel}
-            \end{center}
+            En caso de no especificar ruta se redirige a la web mientras que usando /db se redirige al panel de administración de la base de datos.\\
         \clearpage
-        \section{Inclusion de imágenes adicionales.}
-            Como imagin adicionales he utilizado Adminer y Vault.
+        \section{Inclusión de imágenes adicionales.}
+            Como imagin adicionales he utilizado Adminer y Vault.\\
+            
             Adminer es una herramienta web que nos permite gestionar diferentes sistemas de gestion de bases de datos entre los que se incluye PostgreSQL.
             Para la creacion de la imagen he utilizado la imagen oficial de Adminer.\\
 
             Vault es un gestor de claves que nos permite almacenar de forma segura las claves de nuestro proyecto sin la necesidad de tenerlas escritas explicitamente en el codigo fuente de nuestra aplicacion.
             Para la creacion de la imagen he utilizado la imagen oficial de Vault.
-            Para la configuracion de Vault he utilizado un archivo .hcl en el que se definen la configuracion de inicio de Vault. Esto es necesario dado que Vault no se puede iniciar sin una configuracion inicial.
-            Entre las configuraciones que he definido se encuentra el almacenamiento de claves en ficheros y la creacion de la clave de administrador y de desbloqueo de Vault.
+            Para la configuracion de Vault he creado un archivo .hcl en el que se definen la configuracion de inicio de Vault. 
+            Esto es necesario dado que Vault, por defecto, almacena las claves en memoria y por lo tanto se pierden al reiniciar el contenedor.
+            Entre las configuraciones que he definido se encuentra el almacenamiento de claves en ficheros y la configuracion de red de la API.\\
         \clearpage
-        \section{Utilizacion de funcionalidades Docker/Kubernetes no vistas en clase.}
-            Como funcionalidad no vista en clase he utilizado el networking de Docker y Kubernetes.
-            Definir el networking de los contenedores es una parte muy importante y util de Docker y Kubernetes.
-            La principal funcionalidad que nos ofrece es la de aislar los contenedores de forma que no puedan comunicarse mas que con aquellos contenedores que nosotros queramos.\\
+        \section{Utilización de funcionalidades Docker/Kubernetes no vistas en clase.}
+                Como funcionalidad no vista en clase he utilizado el networking de Docker.
+                Definir el networking de los contenedores es una parte muy importante y útil de Docker.
+                La principal funcionalidad que nos ofrece es la de aislar los contenedores de forma que no puedan comunicarse más que con aquellos contenedores que nosotros queramos.\\
 
-            Esto puede ser muy util si tenemos una API para comunicarnos con la base de datos y no queremos que la aplicacion web pueda acceder a ella directamente.
-            Por desgracia, mi aplicacion web tiene el backend y el frontend en el mismo contenedor por lo que no he podido aprovechar esta funcionalidad al 100\%.
-            Aun asi, he añadido la funcionalidad de networking como prueba de concepto.\\
+                Esto puede ser muy útil si tenemos una API para comunicar la base de datos con la web ya que de esta forma la base de datos no podría ser accesible desde la web lo que impediría que un atacante pudiera acceder a ella.
+                Por desgracia, mi aplicación web tiene el backend y el frontend en el mismo contenedor por lo que no he podido aprovechar esta funcionalidad al 100\%.
+                Aun así, he añadido la funcionalidad de networking como prueba de concepto.
+                La configuración de la red de Docker puede ser vista en el archivo docker-compose.yaml.\\
 
-            La configuracion de la red de Docker puede ser vista en el archivo docker-compose.yaml mientras que para hacerlo en Kubernetes he utilizado Namespace y Network Policy.
+                Además, he utilizado también un HEALTHCHECK en el Dockerfile del SGBD para comprobar que la base de datos está disponible antes de que el robot intente escribir en ella.
+                Esta configuración es útil para evitar errores debido a que un servicio al que necesitas acceder aún no está disponible.
+                La configuración del HEALTHCHECK puede ser vista en el Dockerfile del SGBD y la comprobacion en el docker-compose.yaml\\
         \clearpage
     \chapter{Declaración sobre uso de asistentes virtuales}
-        Para la realizacion de este proyecto se ha utilizado dos asistentes virtuales, GPT-3.5 y GitHub Copilot.\\
+        Para la realización de este proyecto se ha utilizado dos asistentes virtuales, GPT-3.5 y GitHub Copilot.\\
 
         El uso que le he dado a GitHub Copilot ha sido bastante limitado.
-        La unica tarea que ha desepeñado ha sido la de autocompletado de codigo que aporta mediante su integracion con Visual Studio Code.\\
+        La única tarea que ha desempeñado ha sido la de autocompletado de código que aporta mediante su integración con Visual Studio Code.\\
 
-        Por otro lado, el uso que le he dado a GPT-3.5 ha sido bastante mas amplio.
-        Su uso principal ha sido el de ayudarme en las tareas de debugging mediante la interpretacion de log y mensajes de error.
-        Tambien lo he utilizado para preguntas mas generales y para aportarme ideas sobre que podia implementar en el proyecto.
-        Por ultimo, la correccion de errores ortograficos y gramaticales en este informe.\\
+        Por otro lado, el uso que le he dado a GPT-3.5 ha sido bastante más amplio.
+        Su uso principal ha sido el de ayudarme en las tareas de debugging mediante la interpretación de log y mensajes de error.
+        También lo he utilizado para preguntas más generales y para aportarme ideas sobre que podía implementar en el proyecto.
+        Por último, la corrección de errores ortográficos y gramaticales en este informe.\\
     \chapter{Bibliografia}
         \begin{itemize}
             \item GPT-3.5. (2023). Respuesta a una pregunta sobre PHP. OpenAI. \url{https://www.openai.com/}
             \item GitHub Copilot. (2022). Autocompletado. GitHub. \url{https://github.com/features/copilot}
             \item Docker. (2021). Documentación. Docker. \url{https://docs.docker.com/}
             \item Kubernetes. (2021). Documentación. Kubernetes. \url{https://kubernetes.io/docs/home/}
+            \item Minikube (2023). Documentación Minikube. \url{https://minikube.sigs.k8s.io/docs/handbook/}
+            \item Apache. (2021). Documentación. Apache. \url{https://httpd.apache.org/docs/}
             \item PHP. (2021). Documentación. PHP. \url{https://www.php.net/docs.php}
             \item PostgreSQL. (2021). Documentación. PostgreSQL. \url{https://www.postgresql.org/docs/}
-            \item Apache. (2021). Documentación. Apache. \url{https://httpd.apache.org/docs/}
-            \item Minikube (2023). Documentación Minikube. \url{https://minikube.sigs.k8s.io/docs/handbook/}
+            \item Vault (2023). Documentación. Vault. \url{https://developer.hashicorp.com/vault/docs} 
         \end{itemize}
 \end{document}

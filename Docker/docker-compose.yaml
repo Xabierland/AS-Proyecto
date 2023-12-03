@@ -11,6 +11,9 @@
         - "80:80"
       volumes:
         - ./src/web:/var/www/html
+      networks:
+        - frontend
+        - backend
       links:
         - sabd
       depends_on:
@@ -24,6 +27,8 @@
         - "5432:5432"
       volumes:
         - sgbd-data:/var/lib/postgresql/data
+      networks:
+        - backend
     sabd:
       container_name: sabd
       image: adminer:latest
@@ -33,16 +38,21 @@
         - sgbd
       links: 
         - sgbd
+      networks:
+        - backend
     robot:
       container_name: robot
       build:
         context: .
         dockerfile: Dockerfile-robot
       depends_on:
-        - sgbd
-        - vault
+        sgbd:
+          condition: service_healthy
       links:
         - sgbd
+        - vault
+      networks:
+        - backend
     vault:
       container_name: vault
       build:
@@ -50,5 +60,10 @@
         dockerfile: Dockerfile-vault
       ports:
         - "8200:8200"
+      networks:
+        - backend
   volumes:
     sgbd-data:
+  networks:
+    frontend:
+    backend:

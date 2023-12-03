@@ -11,7 +11,7 @@ Proyecto de la asignatura de Administración de Sistemas 2023-2024
   - [Funcionamiento](#funcionamiento)
     - [Docker](#docker)
     - [Kubernetes](#kubernetes)
-  - [FAQ](#faq)
+  - [Claves](#claves)
 
 ## Introducción
 
@@ -29,7 +29,7 @@ En mi caso he decidido crear una aplicación web que permita publicar y ver anun
 - [X] Crear un entorno Docker Compose.
 - [X] Despliegue Kubernetes equivalente
 - [X] Incluir más funcionalidades en la aplicación mediante imágenes adicionales
-- [ ] Utilizar funcionalidades Docker/Kubernetes no vistas en clase
+- [X] Utilizar funcionalidades Docker/Kubernetes no vistas en clase
 
 ## Funcionamiento
 
@@ -147,7 +147,7 @@ kubectl delete -f vault-service.yaml
 minikube tunnel
 ```
 
-## FAQ
+## Claves
 
 ### Vault
 
@@ -177,4 +177,4 @@ minikube tunnel
 
 #### Contraseña
 
-```1234```
+```D#ZnA3qM@58kK%g!TyWAQUrt```

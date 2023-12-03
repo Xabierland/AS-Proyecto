@@ -1,10 +1,13 @@
 FROM postgres:latest
 
 # Variables de entorno
-ENV POSTGRES_PASSWORD=1234
+ENV POSTGRES_PASSWORD=D#ZnA3qM@58kK%g!TyWAQUrt
 ENV POSTGRES_DB=db
 ENV POSTGRES_USER=xabier
 ENV POSTGRES_HOST_AUTH_METHOD=trust
 
 # Copiar la base de datos a la carpeta de inicialización
 COPY ./src/db/db.sql /docker-entrypoint-initdb.d/
+
+HEALTHCHECK --interval=15s --timeout=5s --retries=3 \
+  CMD pg_isready -U xabier -d db || exit 1

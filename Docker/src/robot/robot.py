@@ -110,7 +110,7 @@ def crearAnuncio(pMarca, pModelo):
     db_params = {
     'dbname': 'db',
     'user': 'xabier',
-    'password': '1234',
+    'password': 'D#ZnA3qM@58kK%g!TyWAQUrt',
     'host': 'sgbd',  # Puedes cambiar esto al servidor de tu base de datos
     'port': '5432'  # Puerto por defecto de PostgreSQL
     }
